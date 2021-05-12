@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <title>
+      TO-Do
+    </title>
+    <head>
+      <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+      <div class="box" id="heading">
+        <h1><%= day_key %> </h1>
+      </div>
+        <div class="box">
+            <% for(var i=0;i<added.length;i++) { %>
+              <form action="/delete" method="post">
+              <div class="item">
+              <input type="checkbox" value="<%= added[i]._id %>" name="status" onChange=this.form.submit()>
+              <p><%= added[i].name %> </p>
+            </form>
+            </div>
+              <% } %>
+              <form class="item" action="/" method="post" >
+                <input type='text' name='addlist' placeholder="Add Task" autocomplete="off">
+                <button type='submit' name='yes'>+</button>
+              </form>
+              
+        </div>
+        
+        
+    </body>
+</html>
